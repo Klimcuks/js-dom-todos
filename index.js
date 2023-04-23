@@ -11,7 +11,11 @@ const state = {
 const getAllTodos = () => {
   fetch(url)
     .then((response) => {
-      return response.json();
+        if(response.ok){
+            return response.json();
+        } else {
+            alert('SOMETHING WENT WRONG')
+        }
     })
     .then((data) => {
       state.todo = data;
